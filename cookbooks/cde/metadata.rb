@@ -7,7 +7,7 @@ version          "0.0.1"
 
 
 # Best practice includes using rs_utils_marker :begin|:end
-depends "rs_utils"
+depends "rightscale"
 
 recipe "cde::config_shell", "Configures a basic shell environment"
 recipe "cde::config_git", "Configures basic git environment"

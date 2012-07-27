@@ -1,7 +1,7 @@
 # Add customized prompt & autocomplete for shell
 #
 
-rs_utils_marker :begin
+rightscale_marker :begin
 
 template "/etc/motd" do
   source "motd.erb"
@@ -27,6 +27,6 @@ bash "Activate environment" do
   EOH
 end
 
-rs_utils_marker :end
+rightscale_marker :end
 
   

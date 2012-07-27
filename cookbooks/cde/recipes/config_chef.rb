@@ -1,6 +1,6 @@
 # Install chef gem
 
-rs_utils_marker :begin
+rightscale_marker :begin
 
 log "Installing Chef outside of sandbox"
 
@@ -10,6 +10,6 @@ gem_package "chef" do
   options("--no-ri --no-rdoc")
 end
 
-rs_utils_marker :end
+rightscale_marker :end
 
 

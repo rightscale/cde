@@ -1,7 +1,7 @@
 # Install the basic git package and configuration template to
 # 
 
-rs_utils_marker :begin
+rightscale_marker :begin
 
 package "git-core" do
   action :install
@@ -27,15 +27,15 @@ bash "Disable HostKeyChecking" do
 end
 
 
-branch = node[:git][:git_repo] || "master"
+branch = node[:git][:git_branc] || "master"
 
 if node[:git][:git_repo]
   git "/opt/development" do
     user "root"
     repository node[:git][:git_repo]
-    revision node[:git][:git_branch]
+    revision branch
     action :checkout
   end
 end
 
-rs_utils_marker :end
+rightscale_marker :end
