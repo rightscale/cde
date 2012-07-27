@@ -6,7 +6,7 @@ long_description IO.read(File.join(File.dirname(__FILE__), 'README.rdoc'))
 version          "0.0.1"
 
 
-# Best practice includes using rs_utils_marker :begin|:end
+# Best practice includes using rightscale_marker :begin|:end
 depends "rightscale"
 
 recipe "cde::config_shell", "Configures a basic shell environment"

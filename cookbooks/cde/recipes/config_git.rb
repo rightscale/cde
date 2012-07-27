@@ -27,14 +27,25 @@ bash "Disable HostKeyChecking" do
 end
 
 
-branch = node[:git][:git_branc] || "master"
+branch = node[:git][:git_branch] || "master"
 
 if node[:git][:git_repo]
+  # The git resource clones then switches to a disconnected "deploy" branch.
+  # This is heavy handed, but we want to make sure we're on the specified
+  # branch instead.
+  bash "Switch to specified git branch" do
+    user "root"
+    cwd "/opt/development"
+    code "git checkout #{branch}"
+    action :nothing
+  end
+
   git "/opt/development" do
     user "root"
     repository node[:git][:git_repo]
     revision branch
     action :checkout
+    notifies :run, "bash[Switch to specified git branch]", :immediately
   end
 end
 
